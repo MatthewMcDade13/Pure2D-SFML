@@ -8,7 +8,7 @@ using sf::VideoMode;
 using sf::RenderWindow;
 using pure::Game;
 
-Game::Game()
+Game::Game(): m_bShowFPS(false), m_name("")
 {
 }
 
