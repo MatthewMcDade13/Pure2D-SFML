@@ -7,17 +7,7 @@
 #endif
 
 #include "ResourceManager.h"
-
-namespace sf
-{
-	class RenderWindow;
-	class VideoMode;
-	class Drawable;
-	class Event;
-	class Texture;
-	class Font;
-	class Image;
-}
+#include <SFML\Graphics.hpp>
 
 namespace pure
 {

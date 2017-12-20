@@ -1,11 +1,5 @@
 ﻿#pragma once
 
-#ifdef PUREENGINE_EXPORTS
-#define PUREENGINE_API __declspec(dllexport)
-#else
-#define PUREENGINE_API __declspec(dllimport)
-#endif
-
 #include <unordered_map>
 #include <iterator>
 #include <memory>
@@ -15,7 +9,7 @@
 namespace pure
 {
 	template<typename T>
-	class PUREENGINE_API ResourceManager
+	class ResourceManager
 	{
 	public:
 		ResourceManager() { };
