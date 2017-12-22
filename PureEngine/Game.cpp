@@ -29,9 +29,9 @@ void Game::createWindow(const VideoMode vm, const std::string& title)
 
 void Game::start()
 {
-	m_window.setActive(false);
+	sf::Clock clock;
 
-	std::thread renderThread(&Game::render, std::ref(*this));
+	onGameStart();
 
 	while (m_window.isOpen())
 	{
@@ -45,24 +45,8 @@ void Game::start()
 
 			handleInput(event);
 		}
-	}
 
-	renderThread.join();
-}
-
-void Game::setFPS(bool show)
-{
-	m_bShowFPS = show;
-}
-
-void Game::render()
-{
-	onGameStart();
-
-	sf::Clock clock;
-
-	while (m_window.isOpen())
-	{
+		// ======= Render =======
 		m_window.clear();
 
 		float elapsedTime = clock.restart().asSeconds();
@@ -75,5 +59,11 @@ void Game::render()
 		update(elapsedTime);
 
 		m_window.display();
-	}	
+	}
 }
+
+void Game::setFPS(bool show)
+{
+	m_bShowFPS = show;
+}
+

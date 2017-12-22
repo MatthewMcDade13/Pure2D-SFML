@@ -49,7 +49,6 @@ namespace pure
 		virtual void handleInput(const sf::Event& event) = 0;
 
 	private:
-		void render();
 
 		std::string m_name;
 		bool m_bShowFPS;
