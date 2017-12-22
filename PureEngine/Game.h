@@ -37,15 +37,15 @@ namespace pure
 		ResourceManager<sf::Image> m_imageMan;
 		sf::RenderWindow m_window;
 
-		// Called before game loop on render thread, 
+		// Called before game loop,
 		// use this for setup
 		virtual void onGameStart() = 0;
 
-		// Called every frame on render thread		
+		// Called every frame	
 		// derived class must handle drawing to window here
 		virtual void update(float deltaTime) = 0;
 
-		// Handle user input, called on main thread.
+		// Handle user input
 		virtual void handleInput(const sf::Event& event) = 0;
 
 	private:
