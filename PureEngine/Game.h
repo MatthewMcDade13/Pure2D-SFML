@@ -6,6 +6,16 @@
 #define PUREENGINE_API __declspec(dllimport)
 #endif
 
+#include <string>
+
+namespace sf
+{
+	class Event;
+	class RenderWindow;
+	class VideoMode;
+}
+
+
 namespace pure
 {
 	struct ResourceHolder;
