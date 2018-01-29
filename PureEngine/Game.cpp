@@ -1,14 +1,19 @@
 #include "stdafx.h"
+#include "Context.h"
+#include "ResourceHolder.h"
+#include "ResourceManager.h"
 #include "Game.h"
 
-#include <thread>
-#include <exception>
-
+using namespace pure;
 using sf::VideoMode;
 using sf::RenderWindow;
-using pure::Game;
 
-Game::Game(): m_bShowFPS(false), m_name("")
+Game::Game() :
+	m_context({ &m_resources }),
+	m_resources(),
+	m_bShowFPS(false),
+	m_bUseFixedTimeStep(true),
+	m_timePerFrame(sf::seconds(1.f / 120.f))
 {
 }
 
@@ -25,41 +30,46 @@ void Game::createWindow(const VideoMode vm, const std::string& title)
 {
 	m_name = title;
 	m_window.create(vm, title);
+	m_context.window = &m_window;
 }
 
 void Game::start()
 {
-	sf::Clock clock;
-
 	onGameStart();
+
+	sf::Clock clock;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
 	while (m_window.isOpen())
 	{
-		sf::Event event;
-		while (m_window.pollEvent(event))
+		processInput();
+
+		if (m_bUseFixedTimeStep)
 		{
-			if (event.type == sf::Event::Closed)
+			timeSinceLastUpdate += clock.restart();
+			while (timeSinceLastUpdate >= m_timePerFrame)
 			{
-				m_window.close();
+				timeSinceLastUpdate -= m_timePerFrame;
+				processInput();
+				update(m_timePerFrame.asSeconds());
 			}
 
-			handleInput(event);
+			render();
 		}
-
-		// ======= Render =======
-		m_window.clear();
-
-		float elapsedTime = clock.restart().asSeconds();
+		else
+		{
+			timeSinceLastUpdate = clock.restart();
+			update(timeSinceLastUpdate.asSeconds());
+			render();
+		}
 
 		if (m_bShowFPS)
 		{
-			m_window.setTitle(m_name + " - FPS: " + std::to_string(1 / elapsedTime));
+			m_window.setTitle(m_name + " - FPS: " + std::to_string(1 / timeSinceLastUpdate.asSeconds()));
 		}
 
-		update(elapsedTime);
-
-		m_window.display();
 	}
+
 }
 
 void Game::setFPS(bool show)
@@ -67,3 +77,33 @@ void Game::setFPS(bool show)
 	m_bShowFPS = show;
 }
 
+void Game::setFrameTime(float framesPerSecond)
+{
+	m_timePerFrame = sf::seconds(1.f / framesPerSecond);
+}
+
+void Game::setUseFixedTimeStep(bool shouldUseTimeStep)
+{
+	m_bUseFixedTimeStep = shouldUseTimeStep;
+}
+
+void Game::processInput()
+{
+	sf::Event event;
+	while (m_window.pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
+		{
+			m_window.close();
+		}
+
+		handleInput(event);
+	}
+}
+
+void Game::render()
+{
+	m_window.clear();
+	draw();
+	m_window.display();
+}

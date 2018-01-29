@@ -6,7 +6,6 @@
 #define PUREENGINE_API __declspec(dllimport)
 #endif
 
-#include <SFML/Graphics.hpp>
 #include <memory>
 
 namespace pure

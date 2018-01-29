@@ -9,9 +9,12 @@ namespace sf
 	class Image;
 }
 
-struct ResourceHolder
+namespace pure
 {
-	pure::ResourceManager<sf::Texture> textureManager;
-	pure::ResourceManager<sf::Font> fontManager;
-	pure::ResourceManager<sf::Image> imageManager;
-};
+	struct ResourceHolder
+	{
+		pure::ResourceManager<sf::Texture> textureManager;
+		pure::ResourceManager<sf::Font> fontManager;
+		pure::ResourceManager<sf::Image> imageManager;
+	};
+}

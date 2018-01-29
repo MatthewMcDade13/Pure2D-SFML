@@ -6,11 +6,10 @@
 #define PUREENGINE_API __declspec(dllimport)
 #endif
 
-#include "ResourceManager.h"
-#include <SFML\Graphics.hpp>
-
 namespace pure
 {
+	struct ResourceHolder;
+	struct Context;
 
 	class PUREENGINE_API Game
 	{
@@ -25,37 +24,38 @@ namespace pure
 
 		void createWindow(const sf::VideoMode vm, const std::string& title);
 
-		// Starts game loop
 		void start();
 
-		// Toggle showing fps in window title ON/OFF
 		void setFPS(bool show);
 
-	protected:
-		ResourceManager<sf::Texture> m_textureMan;
-		ResourceManager<sf::Font> m_fontMan;
-		ResourceManager<sf::Image> m_imageMan;
-		sf::RenderWindow m_window;
+		void setFrameTime(float framesPerSecond);
 
-		// Called before game loop,
-		// use this for setup
+		void setUseFixedTimeStep(bool shouldUseTimeStep);
+
+	protected:
+		ResourceHolder m_resources;
+		Context m_context;
+
 		virtual void onGameStart() = 0;
 
-		// Called every frame	
-		// derived class must handle drawing to window here
+		virtual void draw() = 0;
+
 		virtual void update(float deltaTime) = 0;
 
-		// Handle user input
 		virtual void handleInput(const sf::Event& event) = 0;
 
 	private:
 
+		sf::RenderWindow m_window;
 		std::string m_name;
 		bool m_bShowFPS;
+		bool m_bUseFixedTimeStep;
+		sf::Time m_timePerFrame;
+
+		void processInput();
+		void render();
 
 	};
-
-
 }
 
 
