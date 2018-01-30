@@ -9,7 +9,7 @@ namespace pure
 {
 	struct Context
 	{
-		class ResourceHolder* resources;
+		struct ResourceHolder* resources;
 		sf::RenderWindow* window;
 		class Player* player;
 	};
