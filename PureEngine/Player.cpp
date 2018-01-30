@@ -4,14 +4,14 @@
 
 using namespace pure;
 
-pure::Player::Player():
+Player::Player():
 	m_entity(nullptr)
 { }
 
-pure::Player::~Player()
+Player::~Player()
 { }
 
-void pure::Player::removeEntity()
+void Player::removeEntity()
 {
 	m_entity = nullptr;
 }
@@ -26,17 +26,17 @@ const Entity* Player::getEntity() const
 	return m_entity.get();
 }
 
-void pure::Player::bindKey(sf::Keyboard::Key key, Action actionBinding)
+void Player::bindKey(sf::Keyboard::Key key, Action actionBinding)
 {
 	m_keybinds[key] = actionBinding;
 }
 
-void pure::Player::removeBinding(sf::Keyboard::Key key)
+void Player::removeBinding(sf::Keyboard::Key key)
 {
 	m_keybinds.erase(key);
 }
 
-void pure::Player::handleLiveInput(float deltaTime)
+void Player::handleLiveInput(float deltaTime)
 {
 	for (const auto& p : m_keybinds)
 	{

@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include "Context.h"
-#include "ResourceHolder.h"
-#include "ResourceManager.h"
 #include "Game.h"
 
 using namespace pure;

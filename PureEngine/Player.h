@@ -17,15 +17,17 @@ namespace sf
 }
 
 
-typedef std::function<void(float)> Action;
+
 
 namespace pure
 {
-	class PUREENGINE_API Entity;
+	class Entity;
 
-	class Player
+	class PUREENGINE_API Player
 	{
 	public:
+		typedef std::function<void(float)> Action;
+
 		Player();
 		virtual ~Player();
 

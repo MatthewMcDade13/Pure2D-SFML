@@ -5,6 +5,7 @@
 #include <memory>
 #include <functional>
 #include <utility>
+#include <assert.h>
 
 namespace pure
 {
@@ -18,7 +19,7 @@ namespace pure
 
 		T& get(const std::string& filePath)
 		{
-
+			using namespace std;
 			{
 				T* existingResource = findResource(filePath);
 

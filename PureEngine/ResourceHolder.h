@@ -1,20 +1,16 @@
 ﻿#pragma once
 
 #include "ResourceManager.h"
-
-namespace sf
-{
-	class Texture;
-	class Font;
-	class Image;
-}
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Image.hpp>
 
 namespace pure
 {
 	struct ResourceHolder
 	{
-		pure::ResourceManager<sf::Texture> textureManager;
-		pure::ResourceManager<sf::Font> fontManager;
-		pure::ResourceManager<sf::Image> imageManager;
+		ResourceManager<sf::Texture> textureManager;
+		ResourceManager<sf::Font> fontManager;
+		ResourceManager<sf::Image> imageManager;
 	};
 }

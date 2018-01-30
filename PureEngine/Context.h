@@ -1,8 +1,5 @@
 ﻿#pragma once
 
-#include "ResourceHolder.h"
-#include "Player.h"
-
 namespace sf
 {
 	class RenderWindow;
@@ -12,8 +9,8 @@ namespace pure
 {
 	struct Context
 	{
-		ResourceHolder* resources;
+		class ResourceHolder* resources;
 		sf::RenderWindow* window;
-		Player* player;
+		class Player* player;
 	};
 }

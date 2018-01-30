@@ -7,11 +7,9 @@
 #endif
 
 #include "SceneNode.h"
-
-namespace sf
-{
-	typedef Vector2f Vector2f;
-}
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 
 namespace pure
 {

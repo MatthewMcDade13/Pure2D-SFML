@@ -15,14 +15,16 @@
 template <typename F>
 void parallelFor(int begin, int end, F func)
 {
-	int numThread = std::thread::hardware_concurrency();
-	std::vector<std::future<void>> futures(numThread);
-	std::atomic<int> offset;
+	using namespace std;
+
+	int numThread = thread::hardware_concurrency();
+	vector<future<void>> futures(numThread);
+	atomic<int> offset;
 	offset = begin;
 
 	for (size_t i = 0; i < futures.size(); i++)
 	{
-		futures[i] = std::async(std::launch::async,
+		futures[i] = async(launch::async,
 			[i, &offset, end, &func]() {
 			while (true)
 			{

@@ -6,7 +6,15 @@
 #define PUREENGINE_API __declspec(dllimport)
 #endif
 
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/Transform.hpp>
+#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <memory>
+#include <vector>
 
 namespace pure
 {

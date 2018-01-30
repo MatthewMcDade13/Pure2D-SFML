@@ -7,28 +7,23 @@
 #endif
 
 #include <string>
-
-namespace sf
-{
-	class Event;
-	class RenderWindow;
-	class VideoMode;
-}
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/VideoMode.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/NonCopyable.hpp>
+#include "ResourceHolder.h"
+#include "Context.h"
 
 
 namespace pure
 {
-	struct ResourceHolder;
-	struct Context;
 
-	class PUREENGINE_API Game
+	class PUREENGINE_API Game : private sf::NonCopyable
 	{
 	public:
 		Game();
-		Game(const Game& g) = delete;
 		virtual ~Game();
-
-		Game& operator=(const Game& g) = delete;
 
 		sf::RenderWindow& getWindow();
 
