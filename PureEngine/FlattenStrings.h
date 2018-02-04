@@ -3,11 +3,7 @@
 #include <vector>
 #include <string>
 
-#ifdef PUREENGINE_EXPORTS
-#define PUREENGINE_API __declspec(dllexport)
-#else
-#define PUREENGINE_API __declspec(dllimport)
-#endif
+#include "WinDllMacro.h"
 
 namespace pure
 {

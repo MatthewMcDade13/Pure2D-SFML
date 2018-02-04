@@ -1,9 +1,9 @@
 ﻿#pragma once
 
+#include <string>
 #include <unordered_map>
 #include <iterator>
 #include <memory>
-#include <functional>
 #include <utility>
 #include <assert.h>
 

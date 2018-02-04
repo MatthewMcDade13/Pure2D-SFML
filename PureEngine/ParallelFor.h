@@ -1,11 +1,5 @@
 ﻿#pragma once
 
-#ifdef PUREENGINE_EXPORTS
-#define PUREENGINE_API __declspec(dllexport)
-#else
-#define PUREENGINE_API __declspec(dllimport)
-#endif
-
 #include <thread>
 #include <vector>
 #include <future>

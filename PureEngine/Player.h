@@ -1,23 +1,13 @@
 #pragma once
 
-#ifdef PUREENGINE_EXPORTS
-#define PUREENGINE_API __declspec(dllexport)
-#else
-#define PUREENGINE_API __declspec(dllimport)
-#endif
+#include "WinDllMacro.h"
+
+#include <SFML/Window/Keyboard.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include <memory>
 #include <unordered_map>
 #include <functional>
-
-namespace sf
-{
-	class Event;
-	class Keyboard;
-}
-
-
-
 
 namespace pure
 {
