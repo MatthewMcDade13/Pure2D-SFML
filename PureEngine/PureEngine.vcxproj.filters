@@ -63,7 +63,7 @@
     <ClInclude Include="Tilemap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WinDllMacro.h">
+    <ClInclude Include="PureEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

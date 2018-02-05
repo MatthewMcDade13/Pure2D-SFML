@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include "WinDllMacro.h"
+#include "PureEngine.h"
 
 namespace pure
 {

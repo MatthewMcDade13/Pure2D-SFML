@@ -1,6 +1,6 @@
 #pragma once
 
-#include "WinDllMacro.h"
+#include "PureEngine.h"
 
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Event.hpp>
@@ -24,9 +24,6 @@ namespace pure
 		// Sets player entity to nullptr explicitly
 		void removeEntity();
 
-		void setEntity(std::unique_ptr<Entity>& entity);
-		const Entity* getEntity() const;
-
 		void bindKey(sf::Keyboard::Key key, Action actionBinding);
 		void removeBinding(sf::Keyboard::Key key);
 
@@ -39,8 +36,6 @@ namespace pure
 		virtual void setupPlayerInputs() { }
 
 	protected:
-		// Entity that the player is controlling
-		std::unique_ptr<Entity> m_entity;
 		std::unordered_map<sf::Keyboard::Key, Action> m_keybinds;
 	};
 

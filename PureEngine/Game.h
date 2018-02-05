@@ -1,6 +1,6 @@
 #pragma once
 
-#include "WinDllMacro.h"
+#include "PureEngine.h"
 
 #include <string>
 #include <SFML/Graphics/RenderWindow.hpp>

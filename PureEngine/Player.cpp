@@ -4,27 +4,11 @@
 
 using namespace pure;
 
-Player::Player():
-	m_entity(nullptr)
+Player::Player()
 { }
 
 Player::~Player()
 { }
-
-void Player::removeEntity()
-{
-	m_entity = nullptr;
-}
-
-void Player::setEntity(std::unique_ptr<Entity>& entity)
-{
-	m_entity = std::move(entity);
-}
-
-const Entity* Player::getEntity() const
-{
-	return m_entity.get();
-}
 
 void Player::bindKey(sf::Keyboard::Key key, Action actionBinding)
 {

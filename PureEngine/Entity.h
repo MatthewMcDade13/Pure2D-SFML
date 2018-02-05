@@ -1,6 +1,6 @@
 #pragma once
 
-#include "WinDllMacro.h"
+#include "PureEngine.h"
 
 #include "SceneNode.h"
 #include <SFML/System/Vector2.hpp>

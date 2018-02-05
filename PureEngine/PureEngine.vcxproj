@@ -153,6 +153,7 @@
     <ClInclude Include="GetConsoleInput.h" />
     <ClInclude Include="ParallelFor.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PureEngine.h" />
     <ClInclude Include="ResourceHolder.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SceneNode.h" />
@@ -161,7 +162,6 @@
     <ClInclude Include="StringToCase.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tilemap.h" />
-    <ClInclude Include="WinDllMacro.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Context.cpp" />
