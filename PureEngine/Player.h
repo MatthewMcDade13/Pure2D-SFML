@@ -21,14 +21,11 @@ namespace pure
 		Player();
 		virtual ~Player();
 
-		// Sets player entity to nullptr explicitly
-		void removeEntity();
-
 		void bindKey(sf::Keyboard::Key key, Action actionBinding);
 		void removeBinding(sf::Keyboard::Key key);
 
 		// Handles single polled sfml events
-		virtual void handleEvent(sf::Event& event) { }
+		virtual void handleEvent(const sf::Event& event) { }
 
 		// Iterates over keybinds and calls bound function
 		virtual void handleLiveInput(float deltaTime);
