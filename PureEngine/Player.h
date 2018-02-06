@@ -30,7 +30,7 @@ namespace pure
 		// Iterates over keybinds and calls bound function
 		virtual void handleLiveInput(float deltaTime);
 
-		virtual void setupInputs() { }
+		virtual void setupKeybinds() { }
 
 	protected:
 		std::unordered_map<sf::Keyboard::Key, Action> m_keybinds;
