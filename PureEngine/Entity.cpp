@@ -22,6 +22,11 @@ void Entity::setVelocity(float velX, float velY)
 	m_velocity = sf::Vector2f(velX, velY);
 }
 
+void pure::Entity::addVelocity(sf::Vector2f velocity)
+{
+	m_velocity += velocity;
+}
+
 sf::Vector2f Entity::getVelocity() const
 {
 	return m_velocity;

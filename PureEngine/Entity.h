@@ -17,6 +17,9 @@ namespace pure
 		void setVelocity(sf::Vector2f velocity);
 		void setVelocity(float velX, float velY);
 
+		// Shorthand for setVelocity(getVelocity() + velocity);
+		void addVelocity(sf::Vector2f velocity);
+
 		sf::Vector2f getVelocity() const;
 
 	protected:
