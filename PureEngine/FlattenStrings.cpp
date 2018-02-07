@@ -10,5 +10,5 @@ std::string pure::flattenStrings(const std::vector<std::string> strings)
 		newString += strings[i];
 	}
 
-	return std::move(newString);
+	return newString;
 }

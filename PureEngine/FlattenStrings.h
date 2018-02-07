@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include "PureEngine.h"
+#include "declspec.h"
 
 namespace pure
 {

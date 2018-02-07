@@ -8,7 +8,7 @@ std::string pure::getConsoleInputstr(const std::string & message)
 	string response;
 	cout << message << ": ";
 	cin >> response;
-	return std::move(response);
+	return response;
 }
 
 bool pure::getConsoleInputb(const std::string & message, const std::string & errorMessage)

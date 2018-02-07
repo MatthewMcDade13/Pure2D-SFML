@@ -1,5 +1,6 @@
 #pragma once
 
+#include "declspec.h"
 #include "PureEngine.h"
 
 #include <string>

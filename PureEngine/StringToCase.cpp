@@ -11,7 +11,7 @@ std::string pure::stringToUpper(const std::string & str)
 
 	transform(cpy.begin(), cpy.end(), cpy.begin(), ::toupper);
 
-	return std::move(cpy);
+	return cpy;
 }
 
 std::string pure::stringToLower(const std::string & str)
@@ -20,5 +20,5 @@ std::string pure::stringToLower(const std::string & str)
 
 	transform(cpy.begin(), cpy.end(), cpy.begin(), ::tolower);
 
-	return std::move(cpy);
+	return cpy;
 }

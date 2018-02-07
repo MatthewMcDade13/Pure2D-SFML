@@ -13,5 +13,5 @@ std::vector<std::string> pure::splitString(const std::string & string, char deli
 		strings.push_back(buffer);
 	}
 
-	return std::move(strings);
+	return strings;
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PureEngine.h"
+#include "declspec.h"
 
 #include <string>
 #include <SFML/Graphics/RenderWindow.hpp>
