@@ -12,7 +12,7 @@ namespace pure
 	}
 
 	// sends newline and flushes stdout
-	void clog() { std::cout << std::endl; }
+	void cLog() { std::cout << std::endl; }
 
 	// prints all args to stdout and then flushes it
 	template <typename T, typename... Args>
