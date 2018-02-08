@@ -1,6 +1,5 @@
 #pragma once
 
-#include "declspec.h"
 #include <string>
 
 namespace sf
@@ -15,9 +14,9 @@ namespace pure
 	std::string vecToString(sf::Vector2<T> vec)
 	{
 		std::string vecStr = "X: ";
-		vecStr += vec.x;
+		vecStr += to_string(vec.x);
 		vecStr += " Y: ";
-		vecStr += vec.y;
+		vecStr += to_string(vec.y);
 		return vecStr;
 	}
 }
