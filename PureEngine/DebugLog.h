@@ -7,31 +7,34 @@
 
 namespace pure
 {
-	// prints given arg to stdout
-	template <typename T, typename std::enable_if<std::is_integral<T>::value>::type>
-	void print(const T& s) { std::cout << s; }
-
-	template<typename T>
-	void print(const sf::Vector2<T>& vec) { std::cout << (vecToString(vec)); }
-
-	void print(const Printable& obj) { std::cout << (obj.toString()); }
-
-	void print(const char* s) { std::cout << s; }
-
-	// sends newline and flushes stdout
-	inline void cLog() { std::cout << std::endl; }
-
-	// prints all args to stdout and then flushes it
-	template <typename T, typename... Args>
-	void cLog(const T& s, const Args&... args)
+	namespace debug
 	{
-		print(s);
-		cLog(args...);
+		// prints given arg to stdout
+		template <typename T, typename std::enable_if<std::is_integral<T>::value>::type>
+		void print(const T& s) { std::cout << s; }
+
+		template<typename T>
+		void print(const sf::Vector2<T>& vec) { std::cout << (vecToString(vec)); }
+
+		void print(const Printable& obj) { std::cout << (obj.toString()); }
+
+		void print(const char* s) { std::cout << s; }
+
+		// sends newline and flushes stdout
+		inline void cLog() { std::cout << std::endl; }
+
+		// prints all args to stdout and then flushes it
+		template <typename T, typename... Args>
+		void cLog(const T& s, const Args&... args)
+		{
+			print(s);
+			cLog(args...);
+		}
 	}
 }
 
 #ifndef NDEBUG
-#define dbLog(...) pure::cLog(__VA_ARGS__)
+#define dbLog(...) pure::debug::cLog(__VA_ARGS__)
 #else
 #define dbLog(...)
 #endif
