@@ -8,13 +8,15 @@
 namespace pure
 {
 	// prints given arg to stdout
-	template <typename T>
+	template <typename T, typename std::enable_if<std::is_integral<T>::value>::type>
 	void print(const T& s) { std::cout << s; }
 
 	template<typename T>
 	void print(const sf::Vector2<T>& vec) { std::cout << (vecToString(vec)); }
 
 	void print(const Printable& obj) { std::cout << (obj.toString()); }
+
+	void print(const char* s) { std::cout << s; }
 
 	// sends newline and flushes stdout
 	inline void cLog() { std::cout << std::endl; }
