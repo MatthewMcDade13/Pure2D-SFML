@@ -156,7 +156,10 @@
     <ClInclude Include="ParallelFor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Printable.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateManager.h" />
     <ClInclude Include="ToString.h" />
+    <ClInclude Include="ToUnderlying.h" />
     <ClInclude Include="VecToString.h" />
     <ClInclude Include="PureEngine.h" />
     <ClInclude Include="ResourceHolder.h" />
@@ -178,6 +181,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SplitString.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

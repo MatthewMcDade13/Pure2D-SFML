@@ -18,7 +18,7 @@ Game::~Game()
 {
 }
 
-RenderWindow& Game::getWindow()
+const RenderWindow& Game::getWindow() const
 {
 	return m_window;
 }

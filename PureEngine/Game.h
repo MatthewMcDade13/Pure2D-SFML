@@ -21,7 +21,7 @@ namespace pure
 		Game();
 		virtual ~Game();
 
-		sf::RenderWindow& getWindow();
+		const sf::RenderWindow& getWindow() const;
 
 		void createWindow(const sf::VideoMode vm, const std::string& title);
 
@@ -34,6 +34,7 @@ namespace pure
 		void setUseFixedTimeStep(bool shouldUseTimeStep);
 
 	protected:
+		sf::RenderWindow m_window;
 		ResourceHolder m_resources;
 		Context m_context;
 
@@ -43,11 +44,9 @@ namespace pure
 
 		virtual void update(float deltaTime) = 0;
 
-		virtual void handleInput(const sf::Event& event) = 0;
+		virtual void handleInput(const sf::Event& event) { }
 
 	private:
-
-		sf::RenderWindow m_window;
 		std::string m_name;
 		bool m_bShowFPS;
 		bool m_bUseFixedTimeStep;
