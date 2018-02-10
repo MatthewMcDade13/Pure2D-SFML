@@ -15,6 +15,8 @@ namespace pure
 	class PUREENGINE_API State
 	{
 	public:
+		friend StateManager;
+
 		State(StateManager* manager);
 		virtual ~State();
 
@@ -31,6 +33,13 @@ namespace pure
 
 		virtual void draw(sf::RenderWindow& window) = 0;
 
+	protected:
+
+		bool m_bTransparent;
+		bool m_bTranscendant;
+		bool m_bActive;
+		StateManager* m_stateManager;
+
 		// Called when state is activated on state stack.
 		virtual void activate() { }
 
@@ -45,10 +54,5 @@ namespace pure
 
 		virtual void handleInput(const sf::Event& event) { }
 
-	protected:
-		bool m_bTransparent;
-		bool m_bTranscendant;
-		bool m_bActive;
-		StateManager* m_stateManager;
 	};
 }
