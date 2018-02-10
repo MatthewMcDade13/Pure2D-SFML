@@ -13,60 +13,64 @@ namespace sf
 	class Event;
 }
 
-class State;
-
-class PUREENGINE_API StateManager : private sf::NonCopyable
+namespace pure
 {
-public:
-	StateManager(sf::RenderWindow& parentWindow);
-	~StateManager(); 
+	class State;
 
-	// Gets state at top of stack, null if empty
-	State* getCurrentState();
-
-	int getCurrentStateId() const;
-
-	// Registers a state with a given factory function to be "lazy loaded" at runtime.
-	// Requires a factory function to be called when lazy loaded, 
-	// use this if state requires special setup in constructor.
-	void registerState(int typeId, std::function<std::unique_ptr<State>(StateManager*)> stateFactory);
-
-	// Registers a state to be "lazy loaded" at runtime.
-	template <typename T>
-	void registerState(int typeId)
+	class PUREENGINE_API StateManager : private sf::NonCopyable
 	{
-		auto factory = [](StateManager* manager) { return std::make_unique<T>(manager); };
-		m_stateFactory.emplace(typeId, factory);
-	}
+	public:
+		StateManager(sf::RenderWindow& parentWindow);
+		~StateManager();
 
-	// Removes and destroys the state at the top of the stack,
-	// then activate the new state at top of stack
-	void popState();
+		// Gets state at top of stack, null if empty
+		State* getCurrentState();
 
-	// Pushes new state to top of stack
-	void pushState(int typeId);
+		int getCurrentStateId() const;
 
-	// Removes and destroys the given state, activates most recent state if state
-	// destroyed was at top of stack
-	bool removeState(int typeId);
+		// Registers a state with a given factory function to be "lazy loaded" at runtime.
+		// Requires a factory function to be called when lazy loaded, 
+		// use this if state requires special setup in constructor.
+		void registerState(int typeId, std::function<std::unique_ptr<State>(StateManager*)> stateFactory);
 
-	// Checks if state exists in stack
-	bool hasState(int typeId);
+		// Registers a state to be "lazy loaded" at runtime.
+		template <typename T>
+		void registerState(int typeId)
+		{
+			auto factory = [](StateManager* manager) { return std::make_unique<T>(manager); };
+			m_stateFactory.emplace(typeId, factory);
+		}
 
-	// Draws current state and all transparent states beneath it if current state is transparent
-	void draw();
+		// Removes and destroys the state at the top of the stack,
+		// then activate the new state at top of stack
+		void popState();
 
-	// Updates current state and all transcendant states beneath it if current state is transcendant
-	void update(float deltaTime);
+		// Pushes new state to top of stack
+		void pushState(int typeId);
 
-	void handleInput(const sf::Event& event);
+		// Removes and destroys the given state, activates most recent state if state
+		// destroyed was at top of stack
+		bool removeState(int typeId);
 
-private:
-	sf::RenderWindow& m_window;
-	std::vector<std::pair<int, std::unique_ptr<State>>> m_states;
+		// Checks if state exists in stack
+		bool hasState(int typeId);
 
-	std::unordered_map<int, std::function<std::unique_ptr<State>(StateManager*)>> m_stateFactory;
+		// Draws current state and all transparent states beneath it if current state is transparent
+		void draw();
 
-	bool createState(int typeId);
-};
+		// Updates current state and all transcendant states beneath it if current state is transcendant
+		void update(float deltaTime);
+
+		void handleInput(const sf::Event& event);
+
+	private:
+		sf::RenderWindow& m_window;
+		std::vector<std::pair<int, std::unique_ptr<State>>> m_states;
+
+		std::unordered_map<int, std::function<std::unique_ptr<State>(StateManager*)>> m_stateFactory;
+
+		bool createState(int typeId);
+	};
+}
+
 

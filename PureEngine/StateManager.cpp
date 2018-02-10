@@ -3,7 +3,7 @@
 #include "State.h"
 #include "Context.h"
 
-using namespace std;
+using namespace std; using namespace pure;
 
 StateManager::StateManager(sf::RenderWindow& parentWindow):
 	m_window(parentWindow),

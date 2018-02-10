@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "State.h"
 
+using namespace pure;
 
 State::State(StateManager* manager): m_stateManager(manager)
 {
