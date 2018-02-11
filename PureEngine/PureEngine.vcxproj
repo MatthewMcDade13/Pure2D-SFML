@@ -156,6 +156,7 @@
     <ClInclude Include="ParallelFor.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Printable.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="ToString.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetConsoleInput.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SplitString.cpp" />
     <ClCompile Include="State.cpp" />
