@@ -1,10 +1,11 @@
 #pragma once
 
+#include "declspec.h"
 #include <random>
 
 namespace pure
 {
-	class Random
+	class PUREENGINE_API Random
 	{
 	public:
 		Random();
