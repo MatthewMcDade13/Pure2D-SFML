@@ -14,25 +14,25 @@ Random::~Random()
 {
 }
 
-double Random::operator()(float min, float max)
+double Random::operator()(float min, float max) const
 {
 	uniform_real_distribution<> rand(min, max);
 	return rand(m_mez);
 }
 
-double Random::operator()(float max)
+double Random::operator()(float max) const
 {
 	uniform_real_distribution<> rand(0, max);
 	return rand(m_mez);
 }
 
-int Random::operator()(int min, int max)
+int Random::operator()(int min, int max) const
 {
 	uniform_int_distribution<> rand(min, max);
 	return rand(m_mez);
 }
 
-int Random::operator()(int max)
+int Random::operator()(int max) const
 {
 	uniform_int_distribution<> rand(0, max);
 	return rand(m_mez);
