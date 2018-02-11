@@ -23,6 +23,11 @@ State* StateManager::getCurrentState()
 	return m_states.back().second.get();
 }
 
+const sf::RenderWindow& pure::StateManager::getWindow() const
+{
+	return m_window;
+}
+
 int StateManager::getCurrentStateId() const
 {
 	if (m_states.empty()) return -1;

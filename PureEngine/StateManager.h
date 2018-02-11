@@ -26,6 +26,8 @@ namespace pure
 		// Gets state at top of stack, null if empty
 		State* getCurrentState();
 
+		const sf::RenderWindow& getWindow() const;
+
 		int getCurrentStateId() const;
 
 		// Registers a state with a given factory function to be "lazy loaded" at runtime.
