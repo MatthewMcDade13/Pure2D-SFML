@@ -6,7 +6,6 @@ using sf::VideoMode;
 using sf::RenderWindow;
 
 Game::Game() :
-	m_context({ &m_resources }),
 	m_resources(),
 	m_bShowFPS(false),
 	m_bUseFixedTimeStep(true),
@@ -27,7 +26,6 @@ void Game::createWindow(const VideoMode vm, const std::string& title)
 {
 	m_name = title;
 	m_window.create(vm, title);
-	m_context.window = &m_window;
 }
 
 void Game::start()

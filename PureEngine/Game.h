@@ -36,7 +36,6 @@ namespace pure
 	protected:
 		sf::RenderWindow m_window;
 		ResourceHolder m_resources;
-		Context m_context;
 
 		virtual void onGameStart() = 0;
 
