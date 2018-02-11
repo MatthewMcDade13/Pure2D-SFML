@@ -16,9 +16,9 @@ namespace pure
 		template<typename T>
 		void print(const sf::Vector2<T>& vec) { std::cout << (vecToString(vec)); }
 
-		void print(const Printable& obj) { std::cout << (obj.toString()); }
+		inline void print(const Printable& obj) { std::cout << (obj.toString()); }
 
-		void print(const char* s) { std::cout << s; }
+		inline void print(const char* s) { std::cout << s; }
 
 		// sends newline and flushes stdout
 		inline void cLog() { std::cout << std::endl; }
