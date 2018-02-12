@@ -10,8 +10,13 @@ namespace pure
 	namespace debug
 	{
 		// prints given arg to stdout
-		template <typename T, typename std::enable_if<std::is_integral<T>::value>::type>
-		void print(const T& s) { std::cout << s; }
+		template <typename T>
+		typename std::enable_if<std::is_integral<T>::value>::type print(const T& s) 
+		{ std::cout << s; }
+
+		template <typename T>
+		typename std::enable_if<std::is_floating_point<T>::value>::type print(const T& s) 
+		{ std::cout << s; }
 
 		template<typename T>
 		void print(const sf::Vector2<T>& vec) { std::cout << (vecToString(vec)); }
