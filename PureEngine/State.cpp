@@ -3,7 +3,11 @@
 
 using namespace pure;
 
-State::State(StateManager* manager): m_stateManager(manager)
+State::State(StateManager* manager): 
+	m_bTransparent(false),
+	m_bTranscendant(false),
+	m_bActive(false),
+	m_stateManager(manager)
 {
 }
 

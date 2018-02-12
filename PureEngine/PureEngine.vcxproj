@@ -161,6 +161,7 @@
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="ToString.h" />
     <ClInclude Include="ToUnderlying.h" />
+    <ClInclude Include="VectorMath.h" />
     <ClInclude Include="VecToString.h" />
     <ClInclude Include="PureEngine.h" />
     <ClInclude Include="ResourceHolder.h" />
