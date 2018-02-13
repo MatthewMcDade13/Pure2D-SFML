@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Context.h" />
+    <ClInclude Include="Conversions.h" />
     <ClInclude Include="DebugLog.h" />
     <ClInclude Include="declspec.h" />
     <ClInclude Include="Entity.h" />
@@ -163,7 +164,7 @@
     <ClInclude Include="ToUnderlying.h" />
     <ClInclude Include="VectorMath.h" />
     <ClInclude Include="VecToString.h" />
-    <ClInclude Include="PureEngine.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="ResourceHolder.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SceneNode.h" />
@@ -171,10 +172,10 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringToCase.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Tilemap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="Conversions.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FlattenStrings.cpp" />
@@ -193,7 +194,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="StringToCase.cpp" />
-    <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="ToString.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

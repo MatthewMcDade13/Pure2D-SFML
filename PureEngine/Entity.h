@@ -20,6 +20,9 @@ namespace pure
 		// Shorthand for setVelocity(getVelocity() + velocity);
 		void addVelocity(sf::Vector2f velocity);
 
+		// Gets the normalized forward direction
+		sf::Vector2f getForwardDirection() const;
+
 		sf::Vector2f getVelocity() const;
 
 	protected:
