@@ -33,9 +33,6 @@ SceneNode::SceneNodePtr SceneNode::removeChild(const SceneNode& node)
 	return std::move(result);
 }
 
-
-void SceneNode::updateCurrent(float deltaTime) { }
-
 void SceneNode::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	states.transform *= getTransform();

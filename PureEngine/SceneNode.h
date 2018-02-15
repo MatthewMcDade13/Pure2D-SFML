@@ -12,6 +12,12 @@
 #include <memory>
 #include <vector>
 
+/******************************************************************************************/
+/******************************************************************************************/
+/*************************************D E P R E C A T E D**********************************/
+/******************************************************************************************/
+/******************************************************************************************/
+
 namespace pure
 {
 	class PUREENGINE_API SceneNode : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
@@ -39,7 +45,7 @@ namespace pure
 		virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const = 0;
 
 		// Updates the current Scene Node
-		virtual void updateCurrent(float deltaTime);
+		virtual void updateCurrent(float deltaTime) { };
 
 	private:
 		SceneNode * m_parent;
