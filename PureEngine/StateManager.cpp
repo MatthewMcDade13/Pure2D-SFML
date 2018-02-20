@@ -16,12 +16,6 @@ StateManager::~StateManager()
 {
 }
 
-State* StateManager::getCurrentState()
-{
-	if (m_states.empty()) return nullptr;
-
-	return m_states.back().second.get();
-}
 
 const sf::RenderWindow& pure::StateManager::getWindow() const
 {
@@ -44,7 +38,7 @@ void StateManager::popState()
 	State* back = m_states.back().second.get();
 	back->onDestroy();
 	m_states.pop_back();
-	m_states.back().second->activate();
+	m_states.back().second->onActivate();
 }
 
 void StateManager::pushState(int typeId)
@@ -59,16 +53,16 @@ void StateManager::pushState(int typeId)
 		if (it->first == typeId)
 		{
 			unique_ptr<State> state = move(it->second);
-			state->deactivate();
+			state->onDeactivate();
 
 			m_states.erase(it);
 
 			// If we aren't empty, there is probably a state at top of stack that needs
 			// to be deactivated to make way for new state.
 			if (!m_states.empty())
-				m_states.back().second->deactivate();
+				m_states.back().second->onDeactivate();
 
-			state->activate();
+			state->onActivate();
 			m_states.emplace_back(typeId, move(state));
 			return;
 		}
@@ -76,7 +70,7 @@ void StateManager::pushState(int typeId)
 
 	// If we havent found given state in stack, we need to create a new one
 	createState(typeId);
-	m_states.back().second->activate();
+	m_states.back().second->onActivate();
 }
 
 bool StateManager::removeState(int typeId)

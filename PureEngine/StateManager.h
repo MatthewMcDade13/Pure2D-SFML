@@ -24,7 +24,22 @@ namespace pure
 		~StateManager();
 
 		// Gets state at top of stack, null if empty
-		State* getCurrentState();
+		template<typename T>
+		T* getCurrentState()
+		{
+			if (m_states.empty()) return nullptr;
+
+			return dynamic_cast<T*>(m_states.back().second.get());
+		}
+
+		// Peeks state that comes directly before current state.
+		template<typename T>
+		T* peekStack()
+		{
+			if (m_states.empty() || m_states.size() == 1) return nullptr;
+
+			return dynamic_cast<T*>(m_states[m_states.size() - 2].second.get());
+		}
 
 		const sf::RenderWindow& getWindow() const;
 

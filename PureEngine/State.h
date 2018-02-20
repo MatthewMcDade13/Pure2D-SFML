@@ -41,10 +41,10 @@ namespace pure
 		StateManager* m_stateManager;
 
 		// Called when state is activated on state stack.
-		virtual void activate() { }
+		virtual void onActivate() { }
 
 		// Called when state is deactivated on state stack.
-		virtual void deactivate() { }
+		virtual void onDeactivate() { }
 
 		// Called when state is created from state manager.
 		virtual void onCreate() { }
