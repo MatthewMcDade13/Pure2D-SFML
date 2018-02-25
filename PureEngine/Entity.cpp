@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Conversions.h"
 #include "Entity.h"
+#include <cmath>
 
 using namespace pure; using namespace sf;
 
