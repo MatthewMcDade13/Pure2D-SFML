@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "StateManager.h"
 #include "State.h"
-#include "Context.h"
 
 using namespace std; using namespace pure;
 
@@ -53,7 +52,6 @@ void StateManager::pushState(int typeId)
 		if (it->first == typeId)
 		{
 			unique_ptr<State> state = move(it->second);
-			state->onDeactivate();
 
 			m_states.erase(it);
 
@@ -69,6 +67,10 @@ void StateManager::pushState(int typeId)
 	}
 
 	// If we havent found given state in stack, we need to create a new one
+
+	if (!m_states.empty())
+		m_states.back().second->onDeactivate();
+
 	createState(typeId);
 	m_states.back().second->onActivate();
 }

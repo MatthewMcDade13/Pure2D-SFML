@@ -9,7 +9,6 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/System/NonCopyable.hpp>
 #include "ResourceHolder.h"
-#include "Context.h"
 
 
 namespace pure
